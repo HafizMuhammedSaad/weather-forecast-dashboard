@@ -1,8 +1,11 @@
+import os
 import requests
+from dotenv import load_dotenv
 from models.save_data import save_weather_to_db
-  # sahi import
 
-API_KEY = "25956ea250d4637c33ead5d7e8caa3dc"  # apna API key lagao
+load_dotenv()  # .env file se keys load karega
+
+API_KEY = os.getenv("OPENWEATHER_API_KEY")  # ab yahan se key lega
 BASE_URL = "http://api.openweathermap.org/data/2.5/weather"
 
 def fetch_weather(city):
